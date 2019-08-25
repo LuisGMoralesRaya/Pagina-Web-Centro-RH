@@ -2,6 +2,7 @@
     background-color: rgba(0, 0, 0, 0.3);
     height: 55px;
     transition: background-color 1s linear, height 1s linear;
+    z-index: 999;
 }
 header{
     display: flex;
@@ -31,6 +32,10 @@ header{
         }
     }
     &-menu{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
         nav{
             a{
                 padding:{
@@ -52,6 +57,21 @@ header{
                     background-color: #f3e24b;
                     color: #f30f52;
                 }
+            }
+        }
+        &-social{
+            .icon-linkedin{
+                background-color: white;
+                color: #f30f52;
+            }
+            .icon-facebook{
+                background-color: #f3e24b;
+                color: #f30f52;
+            }
+            i{
+                margin-left: 5px;
+                margin-right: 5px;
+                padding:5px;
             }
         }
     }
