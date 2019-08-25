@@ -1,0 +1,12 @@
+.sliderHero{
+    height: 90vh;
+    background-color: #f30f52;
+    &-content{
+        position: relative;
+        &-slide{
+            position: relative;
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}

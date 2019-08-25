@@ -1,0 +1,58 @@
+.stickyHeader{
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 55px;
+    transition: background-color 1s linear, height 1s linear;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    position: -webkit-sticky;
+    position: sticky;
+    transition: background-color 1s linear, height 1s linear;
+    top: 0;
+    padding: {
+        left: 2rem;
+        right: 2rem;
+    }
+}
+.mainHeader{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    &-logo{
+        max-width: 200px;
+        img{
+            width: 100%;
+        }
+    }
+    &-menu{
+        nav{
+            a{
+                padding:{
+                    left: 10px;
+                    right: 10px;
+                    top: 5px;
+                    bottom: 5px;
+                } 
+                text-decoration: none;
+                outline: none;
+                color: white;
+                font-family: 'MontserratSemiBold';
+                @include fluid-type(320px, 1440px, 14px, 20px);
+                &:hover{
+                    background-color: #f3e24b;
+                    color: #f30f52;
+                }
+                &[m-active=true]{
+                    background-color: #f3e24b;
+                    color: #f30f52;
+                }
+            }
+        }
+    }
+}

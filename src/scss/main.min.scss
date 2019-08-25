@@ -1,0 +1,19 @@
+@import "loader";
+@import "plugins/mixins";
+@import "plugins/plugins";
+@import 'main/allMain';
+@import 'fonts/fonts';
+html {
+    height: 100%;
+    width: 100%
+  }
+body{
+  overflow-x: hidden;
+    font-family: 'MontserratRegular';
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    background-color: #f30f52;
+    position: relative;
+}
+
