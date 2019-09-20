@@ -5,6 +5,7 @@
     z-index: 999;
 }
 header{
+    z-index: 99;
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -25,6 +26,7 @@ header{
     align-content: center;
     align-items: center;
     flex-direction: row;
+    
     &-logo{
         max-width: 200px;
         img{
@@ -36,8 +38,34 @@ header{
         justify-content: center;
         align-items: center;
         align-content: center;
+        &[m-slide=true]{
+            nav a{
+                color: #333333;
+            }
+            nav a[m-active=true]{
+                background-color: #f30f52;
+                color: #f3e24b;
+            
+            }
+            i{
+                background-color: #f30f52;
+                color: #f3e24b;
+            }
+            i:hover{
+                background-color: #333333;
+            }
+            nav a:hover {
+                background-color: #f30f52;
+                color: #f3e24b;
+            }
+        }
         nav{
+            .closeMobile{
+                display: none;
+                cursor: pointer;
+            }
             a{
+                transition: background-color 200ms linear, color 200ms linear;
                 padding:{
                     left: 10px;
                     right: 10px;
@@ -48,7 +76,7 @@ header{
                 outline: none;
                 color: white;
                 font-family: 'MontserratSemiBold';
-                @include fluid-type(320px, 1440px, 14px, 20px);
+                @include fluid-type(1100px, 1440px, 14px, 20px);
                 &:hover{
                     background-color: #f3e24b;
                     color: #f30f52;
@@ -60,18 +88,97 @@ header{
             }
         }
         &-social{
-            .icon-linkedin{
-                background-color: white;
-                color: #f30f52;
-            }
-            .icon-facebook{
-                background-color: #f3e24b;
-                color: #f30f52;
-            }
+            
             i{
                 margin-left: 5px;
                 margin-right: 5px;
                 padding:5px;
+                background-color: white;
+                color: #f30f52;
+                cursor: pointer;
+                &:hover{
+                    background-color: #f3e24b;
+                }
+            }
+        }
+    }
+    &-menuMobile{
+        display: none;
+        cursor: pointer;
+        div {
+            width: 30px;
+            height: 5px;
+            background-color: white;
+            margin: 5px 0;
+          }
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1200px) {
+    header{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }    
+    
+  }
+@media (min-width: 0px) and (max-width: 999px) {
+    header{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    } 
+    .mainHeader-logo img{
+        min-width: 160px;
+    }
+    .mainHeader-menuMobile{
+        display: block;
+    }
+    .mainHeader-menu{
+        align-items: flex-end;
+        align-content: flex-end;
+        justify-content: flex-end;
+        width: 100%;
+        margin-right: 10px;
+        nav{
+            position: absolute;
+            background-color: #f30f52;
+            top: 0;
+            min-height: 0;
+            width: 0;
+            visibility: hidden;
+            left: 100%;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.5s linear;  
+            a{
+                display: none;
+                transition: all 5s linear;  
+                font-size: 2rem;
+            }
+            &[m-open=true]{
+                display: flex;
+                min-height: 100vh;
+                width: 100%;
+                visibility: visible;
+                border-radius: 0%;
+                left: 0;
+                a{
+                    display: block;
+                }
+            }
+            .closeMobile{
+                cursor: pointer;
+                display: block;
+                color: white;
+                font-size: 3rem;
+                font-weight: bold;
+                position: absolute;
+                top: 10%;
+                left: 90%;
+                font-family: 'MontserratBold';
+                transform: translate(-50%, -50%);
             }
         }
     }

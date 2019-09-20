@@ -1,6 +1,27 @@
 .sliderHero{
-    height: 90vh;
+    height: auto;
+    margin-bottom: 3rem;
+    margin-top: -6.5rem;
+    padding-top: 6.5rem;
     background-color: #f30f52;
+    transition: background-color 500ms linear;
+    position: relative;
+    &[m-background=true]{
+      background-color: #f3e24b;
+      .paginator li{
+        background-color: #f30f52;
+        i{
+          color: #f3e24b;
+        }
+        &:hover{
+          background-color: #f3e24b;
+          border: 2px solid #f30f52;
+          i{
+            color: #f30f52;
+          }
+        }
+      }
+    }
     &-content{
         position: relative;
         &-slide{
@@ -9,7 +30,16 @@
             flex-direction: row;
         }
     }
-    .slick-slide .slide-content {
+    .slick-slide{
+      opacity: 0;
+    }
+    .slick-current{
+      opacity: 1!important;
+    }
+    .slick-active{
+      opacity: 1!important;
+    }
+    .slide-content {
         max-width: 1300px;
         height: 600px;
         margin: 0 auto;
@@ -17,64 +47,117 @@
         flex-direction: row;
         align-content: center;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
+        &[m-reverse=true]{
+          flex-direction: row-reverse;
+        }
+        .contentText{
+          display: flex;
+          align-content: center;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          .textoSlider{
+            font-family: 'MontserratBold';
+            @include fluid-type(320px, 1440px, 20px, 32px);
+            max-width: 600px;
+            text-align: center;
+            span{
+              color: #f30f52;
+            }
+          }
+          .seconButton{
+            color: #f3e24b;
+            background-color: #f30f52;
+            font-family: 'MontserratSemiBold';
+            letter-spacing: 1px;
+            padding: 1rem 2rem;
+            @include fluid-type(320px, 1440px, 20px, 38px);
+            outline: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 3px;
+          }
+        }
+        
         .textSlide{
-
-            max-height: 400px;
+          align-items: center;
+          display: flex;
+          align-content: center;
+          flex-direction: column;
+          img{
+            width: 350px;
+          }
+          .firstButton{
+            margin-top: 2rem;
+            background-color: #f3e24b;
+            color: #f30f52;
+            font-family: 'MontserratSemiBold';
+            letter-spacing: 1px;
+            padding: 1rem 1.5rem;
+            @include fluid-type(320px, 1440px, 20px, 28px);
+            outline: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 3px;
+          }
         }
         .humanSlide{
-            max-width: 700px;
+            max-height: 450px;
+        }
+        .person{
+          height: 600px;
+        }
+        .centerTop{
+          position: relative;
         }
       }
       
       .slick-list {
         margin: 20px 0px;
       }
-      
-      .slick-prev, .slick-next {
+      .paginator{
         position: absolute;
-        right: 10%;
-        background: #777;
-        border: none;
-        color: transparent;
-        width: 30px;
-        height: 30px;
-      }
-      
-      .slick-prev:before, .slick-next:before {
-        content: ">";
-        z-index: 10;
-        color: #fff;
-        font-size: 25px;
-      }
-      
-      .slick-prev {
-        left: 10%;
-        z-index: 10;
-        &:before {
-          content: "<";
-        }
-      }
-      
-      .slick-dots {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        width: 100vw;
+        padding-left: 0;
         list-style: none;
-        margin: 0 auto;
-        text-align: center;
-        li {
-          display: inline-block;
-          button {
-            transition: 0.2s background-color ease-in-out 0s;
-            border: none;
-            padding: 0;
-            color: transparent;
-            width: 10px;
-            height: 10px;
-            background-color: #777;
-            margin-right: 10px;
-            border-radius: 50%;
+        justify-content: space-between;
+        li{
+          display: flex;
+          align-content: center;
+          align-items: center;
+          justify-content: center;
+          background-color: #f3e24b;
+          width: 50px;
+          height: 50px;
+          margin-left: 1rem;
+          margin-right: 1rem;
+          border-radius: 50%;
+          box-shadow: 10px 10px 26px -10px rgba(0,0,0,0.47);
+          transition: transform .2s, color .2s, background-color .2s;
+          cursor: pointer;
+          .right{
+            transform: rotate(180deg);
+
           }
-          &.slick-active button {
-            background-color: #fff;
+          i{
+            color: #f30f52;
+          font-size: 1.5rem;
+          cursor: pointer;
+          }
+          &:hover{
+            transform: scale(1.2);
+            i{
+              color: #f3e24b;
+            }
+              background-color: #f30f52;
+              border: 2px solid #f3e24b;
           }
         }
       }
